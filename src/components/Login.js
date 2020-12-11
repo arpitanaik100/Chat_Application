@@ -129,12 +129,13 @@ class Login extends React.Component
     }
     handleSignOut=(e)=>{
         fire.auth().signOut();
+        this.setState({user:null});
     }
     render()
     {
         return(
             
-                this.state.user==null ? <div class="Title"><h1 style={{fontSize:'70px',fontFamily:'cursive'}}><img src="chat-icon.png" alt="chat" style={{width:'90px',height:'90px'}}/>WASSUP</h1><br></br>
+                this.state.user==null ? <div class="Title"><br/><br/><br/><h1 style={{fontSize:'70px',fontFamily:'cursive'}}><img src="chat-icon.png" alt="chat" style={{width:'90px',height:'90px'}}/>WASSUP</h1><br></br>
                     <form style={{width:'50%',marginLeft:'25%',marginTop:'2%'}}>
                         <div class="form-group">
                             <label style={{fontFamily:'cursive'}} for="email" >Email Address:</label>
@@ -180,7 +181,7 @@ class Login extends React.Component
                         }
                         </div>
                         <footer style={{backgroundColor:'black'}}>
-                            <input style={{marginLeft:'40px',width:'70%',float:'left'}} type="text" class="form-control" onChange={this.handleChange} name="message"value={this.state.message}/>
+                            <input style={{marginLeft:'40px',width:'70%',float:'left'}} type="text" placeholder="Type your text here" class="form-control" onChange={this.handleChange} name="message"value={this.state.message}/>
                             <button style={{width:'17%',marginRight:'30px'}} onClick={this.sendmsg} class="btn btn-primary">Send</button>
                         </footer>
                 </div>

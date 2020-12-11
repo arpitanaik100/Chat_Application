@@ -42,9 +42,6 @@ class Login extends React.Component
         
                 let interval= window.setInterval(function(){
                     var elem=document.getElementById('chatt');
-                    // console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-                    // console.log(snapshot.val());
-                    // console.log(elem.val());
                     elem.scrollTop= elem.scrollHeight;
                     window.clearInterval(interval);
                 
@@ -59,6 +56,7 @@ class Login extends React.Component
     handleChange = (e)=>{
     this.setState({[e.target.name]:e.target.value});
     console.log(this.state);
+        
     }
 
     handleLogin = (e)=>{
@@ -129,7 +127,8 @@ class Login extends React.Component
     }
     handleSignOut=(e)=>{
         fire.auth().signOut();
-        this.setState({user:null});
+        this.setState({username:''});
+        this.setState({password:''});
     }
     render()
     {
@@ -181,8 +180,8 @@ class Login extends React.Component
                         }
                         </div>
                         <footer style={{backgroundColor:'black'}}>
-                            <input style={{marginLeft:'40px',width:'70%',float:'left'}} type="text" placeholder="Type your text here" class="form-control" onChange={this.handleChange} name="message"value={this.state.message}/>
-                            <button style={{width:'17%',marginRight:'30px'}} onClick={this.sendmsg} class="btn btn-primary">Send</button>
+                            <input style={{marginLeft:'40px',width:'60%',float:'left'}} type="text" placeholder="Type your text here" class="form-control" onChange={this.handleChange} name="message"value={this.state.message}/>
+                            <button style={{width:'20%',marginRight:'20px'}} onClick={this.sendmsg} class="btn btn-primary">Send</button>
                         </footer>
                 </div>
             
